@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anto Joeis — AI/ML Engineer</title>
+<meta name="description" content="Anto Joeis — AI/ML Engineer building LLM agents, edge AI and computer-vision inspection systems. 5+ years in production AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f17;--bg2:#111827;--card:#151c2b;--line:#253049;
+  --text:#e6eaf2;--muted:#9aa6bd;--accent:#4fd1c5;--accent2:#7c9cff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,15,23,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+nav .logo{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--text)}
+nav .links{display:flex;gap:22px;font-size:14px}
+nav .links a{color:var(--muted)}
+nav .links a:hover{color:var(--text);text-decoration:none}
+header{padding:96px 0 72px}
+.tag{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:14px;margin-bottom:14px}
+h1{font-size:clamp(36px,6vw,58px);line-height:1.1;font-weight:700;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{margin-top:20px;max-width:680px;font-size:18px;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--text)}
+.btn.primary{background:var(--accent);color:#06201d;border-color:var(--accent)}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:56px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stat b{display:block;font-size:28px;color:var(--accent)}
+.stat small{color:var(--muted);font-size:13px}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-size:28px;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em}
+.card p{color:var(--muted);margin:10px 0 14px;font-size:15px}
+.flow{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--text);background:var(--bg2);border:1px dashed var(--line);border-radius:8px;padding:10px 12px;margin-bottom:14px;white-space:normal;word-break:break-word}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;padding:4px 10px;border-radius:999px;background:#1c2538;color:#c7d0e2;border:1px solid var(--line)}
+.impact{color:var(--accent);font-weight:600;font-size:14px}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.skills h4{font-size:14px;color:var(--accent);margin-bottom:10px;font-family:'JetBrains Mono',monospace}
+.timeline{position:relative;padding-left:22px;border-left:2px solid var(--line)}
+.job{position:relative;margin-bottom:34px}
+.job:before{content:"";position:absolute;left:-29px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+.job .when{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted)}
+.job h3{font-size:18px}
+.job ul{margin:10px 0 0 18px;color:var(--muted);font-size:15px}
+.job li{margin-bottom:6px}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.research{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:28px}
+.research img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+.research h3{font-size:22px;margin:6px 0 8px}
+.research p{color:var(--muted);font-size:15px;margin-bottom:14px}
+.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.mini div{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px}
+.mini b{display:block;color:var(--accent);font-size:20px}
+.mini small{color:var(--muted);font-size:12px}
+@media (max-width:780px){.research{grid-template-columns:minmax(0,1fr)}}
+footer{padding:64px 0 80px;border-top:1px solid var(--line);text-align:center}
+footer h2{margin-bottom:12px}
+footer p{color:var(--muted);margin-bottom:24px}
+.contact{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.copy{margin-top:40px;font-size:13px;color:#5f6b82}
+@media (max-width:780px){
+  nav .links{display:none}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid,.skills,.edu{grid-template-columns:minmax(0,1fr)}
+  .lede{font-size:16px}
+  header{padding:64px 0 48px}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">anto.joeis</a>
+  <div class="links">
+    <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header id="top"><div class="wrap">
+  <div class="tag">// AI/ML Engineer · LLM · Edge AI · Computer Vision</div>
+  <h1>I build <span>production AI</span><br>that runs on the factory floor.</h1>
+  <p class="lede">5+ years turning operational problems into working AI systems — LLM agents that drive real hardware, on-premise GPU inference, and computer-vision inspection that cuts defects. Based in New Taipei City, Taiwan, relocating to Singapore.</p>
+  <div class="cta">
+    <a class="btn primary" href="Anto_Joeis_Resume.pdf" download>Download résumé</a>
+    <a class="btn" href="https://www.linkedin.com/in/anto-joeis" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/antojoeis" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="mailto:antojoeis@gmail.com">Email me</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>100×</b><small>faster LLM inference on GPU vs CPU</small></div>
+    <div class="stat"><b>30%</b><small>fewer manufacturing defects with AI inspection</small></div>
+    <div class="stat"><b>75%</b><small>more reliable OS deployments</small></div>
+    <div class="stat"><b>15+</b><small>hardware tests run in plain language</small></div>
+  </div>
+</div></header>
+
+<section id="projects"><div class="wrap">
+  <h2>Selected projects</h2>
+  <p class="sub">Research at National Tsing Hua University, and production systems built at IEI Integration Corp.</p>
+  <div class="research">
+    <img src="img/thermal_detection.jpg" alt="Faster R-CNN detecting passengers in thermal camera images" loading="lazy">
+    <div>
+      <div class="kicker" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em">Master's thesis · Edge AI · Thermal vision</div>
+      <h3>Smart Public Transport: thermal passenger detection</h3>
+      <p>Counts passengers on a bus in real time with a FLIR Lepton thermal camera and a Raspberry Pi — works day and night and never captures faces. I built a 1,671-image annotated thermal dataset (~10k boxes, 9 classes) and benchmarked Faster R-CNN vs SSDLite for edge deployment.</p>
+      <div class="mini">
+        <div><b>91.3%</b><small>Faster R-CNN accuracy</small></div>
+        <div><b>9 FPS</b><small>SSDLite on GPU</small></div>
+        <div><b>1.2 s</b><small>per frame on Raspberry Pi</small></div>
+      </div>
+      <div class="chips" style="margin-bottom:16px"><span class="chip">TensorFlow OD API</span><span class="chip">Faster R-CNN</span><span class="chip">SSD MobileNet</span><span class="chip">Raspberry Pi</span><span class="chip">LWIR camera</span></div>
+      <a class="btn" id="thesis-repo" href="https://github.com/antojoeis/thermal-passenger-detection" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="kicker">LLM Agent · Tool calling</div>
+      <h3>AI Manufacturing Assistant</h3>
+      <p>An LLM agent that lets test engineers run hardware tests by simply asking. The agent calls internal REST APIs as tools and talks to devices over the serial console — all on one Flask backend.</p>
+      <div class="flow">Bot → Local LLM → REST API → Serial console → Device under test</div>
+      <p class="impact">15+ test workflows automated across product lines</p>
+      <div class="chips"><span class="chip">Ollama</span><span class="chip">Qwen2.5</span><span class="chip">LLaMA 3.2</span><span class="chip">Flask</span><span class="chip">Python</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">RAG · Retrieval</div>
+      <h3>Grounded test-documentation chatbot</h3>
+      <p>Added an embeddings-based RAG pipeline so the assistant answers from internal test documentation instead of guessing — accurate, traceable answers for engineers.</p>
+      <div class="flow">Docs → Embeddings → Vector search → LLM answer</div>
+      <div class="chips"><span class="chip">RAG</span><span class="chip">Embeddings</span><span class="chip">Prompt engineering</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Edge AI · GPU inference</div>
+      <h3>On-premise LLM serving</h3>
+      <p>Deployed Qwen, LLaMA, Mistral and DeepSeek-R1 on an on-premise NVIDIA GPU edge server, keeping data in-house while making local models fast enough for daily use.</p>
+      <p class="impact">~100× faster than CPU-only inference</p>
+      <div class="chips"><span class="chip">NVIDIA GPU</span><span class="chip">CUDA</span><span class="chip">Ollama</span><span class="chip">Docker</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Computer Vision · AOI</div>
+      <h3>LED Smart Inspection System</h3>
+      <p>Fine-tuned pretrained vision models on a custom defect dataset and served them in a real-time pipeline that controls the production machine, with a defect-traceability dashboard.</p>
+      <div class="flow">Camera → Inference → Machine control → MongoDB dashboard</div>
+      <p class="impact">30% reduction in manufacturing defects</p>
+      <div class="chips"><span class="chip">TensorFlow</span><span class="chip">Darknet/YOLO</span><span class="chip">OpenCV</span><span class="chip">MongoDB</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">AI + Security</div>
+      <h3>AI-assisted supply-chain security</h3>
+      <p>Automated SBOM generation in CI plus an LLM agent that triages CRITICAL/HIGH CVEs from Dependency-Track and publishes security reviews to an internal portal.</p>
+      <div class="chips"><span class="chip">Syft</span><span class="chip">Dependency-Track</span><span class="chip">GitLab CI</span><span class="chip">LLM agents</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Automation · DevOps</div>
+      <h3>Automated PXE OS Installation</h3>
+      <p>Consolidated several provisioning pipelines into one DHCP + TFTP server for simultaneous multi-device boot, with a Flask API generating per-device GRUB configs.</p>
+      <p class="impact">75% more reliable deployments</p>
+      <div class="chips"><span class="chip">PXE</span><span class="chip">dnsmasq</span><span class="chip">Flask</span><span class="chip">Linux</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="sub">The tools I use to take AI from prototype to production.</p>
+  <div class="skills">
+    <div class="card"><h4>AI &amp; LLM</h4><div class="chips"><span class="chip">LLM agents</span><span class="chip">Tool calling</span><span class="chip">RAG</span><span class="chip">Embeddings</span><span class="chip">Prompt engineering</span><span class="chip">Ollama</span><span class="chip">Qwen / LLaMA</span></div></div>
+    <div class="card"><h4>Vision &amp; Edge</h4><div class="chips"><span class="chip">TensorFlow</span><span class="chip">OpenCV</span><span class="chip">YOLO / Darknet</span><span class="chip">OpenVINO</span><span class="chip">CUDA</span><span class="chip">AOI inspection</span></div></div>
+    <div class="card"><h4>Engineering</h4><div class="chips"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">REST APIs</span><span class="chip">Docker</span><span class="chip">GitLab CI</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">JavaScript</span></div></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <p class="sub">&nbsp;</p>
+  <div class="timeline">
+    <div class="job">
+      <div class="when">May 2021 – Present · New Taipei City, Taiwan</div>
+      <h3>R&amp;D Software Engineer — IEI Integration Corp.</h3>
+      <ul>
+        <li>Built LLM agents, RAG and on-premise GPU inference for hardware test automation.</li>
+        <li>Delivered AI defect inspection that cut manufacturing defects by 30%.</li>
+        <li>Containerised on-premise data infrastructure — 40% lower data latency, 15% less downtime.</li>
+        <li>Integrated REST control for networked video-orchestration devices (up to 32 sources).</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="when">Nov 2020 – Apr 2021 · Taiwan</div>
+      <h3>Automation Testing Engineer — Top Union Electronics Corp.</h3>
+      <ul>
+        <li>Implemented functional testing procedures: +20% efficiency, 30% fewer defects.</li>
+        <li>Failure analysis and component-level repair; authored team-wide SOPs.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="when">Oct 2014 – Nov 2015 · India</div>
+      <h3>Networking Maintenance Engineer — Globe Computers</h3>
+      <ul><li>Network and desktop support; error-trend reporting for proactive maintenance.</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <h2>Education</h2>
+  <p class="sub">&nbsp;</p>
+  <div class="edu">
+    <div class="card">
+      <div class="kicker">2016 – 2020</div>
+      <h3>M.S. Electrical Engineering &amp; Communication</h3>
+      <p>National Tsing Hua University, Taiwan. Thesis: <em>Smart Public Transport Using Deep Learning</em> — real-time seat-occupancy detection from thermal images, deployed on edge devices.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">2010 – 2014</div>
+      <h3>B.E. Electronics &amp; Communication</h3>
+      <p>Anna University, Chennai, India. Research on remote-sensing image analysis with segmentation and SVM classification.</p>
+    </div>
+  </div>
+  <p class="sub" style="margin-top:24px">Certifications: Generative AI with LLMs — Google Cloud / Coursera (2025) · Python — Udemy (2022)<br>Languages: English (professional) · Mandarin (conversational) · Tamil (native)</p>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <h2>Let's talk</h2>
+  <p>Open to AI/ML Engineer, LLM / Agentic AI, Edge AI and Computer Vision roles in Singapore.</p>
+  <div class="contact">
+    <a class="btn primary" href="mailto:antojoeis@gmail.com">antojoeis@gmail.com</a>
+    <a class="btn" href="https://www.linkedin.com/in/anto-joeis" target="_blank" rel="noopener">linkedin.com/in/anto-joeis</a>
+  </div>
+  <div class="copy">© 2026 Anto Joeis</div>
+</div></footer>
+
+</body>
+</html>
