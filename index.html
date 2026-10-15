@@ -185,6 +185,32 @@ footer p{color:var(--muted);margin:10px auto 30px;max-width:560px}
   .pipeline{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
   .pipeline:before,.pipeline .runner{display:none}
 }
+
+/* AOI case study */
+.aoi-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px;align-items:start}
+.leds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.led{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.led .row{display:flex;justify-content:center;gap:7px;margin-bottom:10px}
+.led .row i{width:14px;height:14px;border-radius:50%;display:block;animation:blink 1.6s infinite}
+.led .row i:nth-child(2){animation-delay:.2s}.led .row i:nth-child(3){animation-delay:.4s}.led .row i:nth-child(4){animation-delay:.6s}
+.led .b{background:#4f8bff;box-shadow:0 0 12px #4f8bff}.led .r{background:#ff4f5e;box-shadow:0 0 12px #ff4f5e}.led .g{background:#3ddc84;box-shadow:0 0 12px #3ddc84}
+.led small{color:var(--muted);font-size:13px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.exps{position:relative;padding-left:22px;border-left:2px solid var(--line)}
+.exp{position:relative;margin-bottom:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.exp:before{content:"";position:absolute;left:-30px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--bg2);border:2px solid var(--muted)}
+.exp.win{border-color:#4fd1c588;box-shadow:0 0 22px -10px var(--accent)}
+.exp.win:before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 12px var(--accent)}
+.exp h4{font-size:15px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.exp h4 span{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent2);font-weight:500}
+.exp p{color:var(--muted);font-size:14px;margin-top:4px}
+.exp.win p{color:var(--text,#e8ecf4)}
+.mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.events{display:grid;gap:10px}
+.ev{display:flex;gap:14px;align-items:baseline;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.ev b{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);min-width:74px}
+.ev span{font-size:15px}.ev small{color:var(--muted);display:block;font-size:13px}
+@media (max-width:780px){.aoi-grid,.mini{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.orb{width:min(300px,76vw)}.orb .h2{right:-4%}}
 @media (max-width:780px){
   #menuBtn{display:block}
@@ -198,7 +224,7 @@ footer p{color:var(--muted);margin:10px auto 30px;max-width:560px}
 }
 
 .sysd[hidden]{display:none}.sysd svg{display:block;width:100%;height:auto}
-.sysd .flow{stroke:#2e4a6b;stroke-dasharray:6 6;animation:dash 1s linear infinite}
+.sysd .flow,.aoi-sys .flow{stroke:#2e4a6b;stroke-dasharray:6 6;animation:dash 1s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-12}}
 .sysd .node rect{transition:.3s}
 /* chatbot */
@@ -247,7 +273,7 @@ footer p{color:var(--muted);margin:10px auto 30px;max-width:560px}
   <a class="logo" href="#top">anto<i>.</i>joeis</a>
   <button id="menuBtn" aria-label="Menu">☰</button>
   <div class="links" id="links">
-    <a href="#thesis">Thesis</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    <a href="#thesis">Thesis</a><a href="#projects">Projects</a><a href="#aoi">AOI</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
   </div>
 </div></nav>
 
@@ -353,10 +379,6 @@ footer p{color:var(--muted);margin:10px auto 30px;max-width:560px}
         <button data-img="img/ssd_results.jpg">SSDLite</button>
         <button data-svg="1">System design</button>
       </div>
-      <div class="strip"><div class="track">
-        <img src="img/thermal_1.jpg" alt=""><img src="img/thermal_20.jpg" alt=""><img src="img/thermal_40.jpg" alt=""><img src="img/thermal_60.jpg" alt=""><img src="img/thermal_80.jpg" alt=""><img src="img/thermal_100.jpg" alt="">
-        <img src="img/thermal_1.jpg" alt=""><img src="img/thermal_20.jpg" alt=""><img src="img/thermal_40.jpg" alt=""><img src="img/thermal_60.jpg" alt=""><img src="img/thermal_80.jpg" alt=""><img src="img/thermal_100.jpg" alt="">
-      </div></div>
     </div>
     <div class="reveal">
       <h3>A custom thermal dataset and two detectors, benchmarked for the edge</h3>
@@ -440,6 +462,139 @@ footer p{color:var(--muted);margin:10px auto 30px;max-width:560px}
       <p>One DHCP + TFTP server for simultaneous multi-device boot, with a Flask API generating per-device GRUB configs.</p>
       <p class="impact">75% more reliable deployments</p>
       <div class="chips"><span class="chip">PXE</span><span class="chip">dnsmasq</span><span class="chip">Flask</span><span class="chip">Linux</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- AOI CASE STUDY -->
+<section id="aoi"><div class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">Case study · IEI Integration Corp.</div>
+    <h2>Deep-learning AOI for LED inspection</h2>
+    <p class="sub">Replacing manual checks of LED status on devices with a CNN classifier — trained on a GPU server, optimised with Intel OpenVINO and served in under 4 ms per image.</p>
+  </div>
+  <div class="aoi-grid">
+    <div class="reveal">
+      <h3 style="margin-bottom:12px">4 positive LED states to learn</h3>
+      <div class="leds">
+        <div class="led"><div class="row"><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i></div><small>All Blue</small></div>
+        <div class="led"><div class="row"><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i></div><small>All Red</small></div>
+        <div class="led"><div class="row"><i class="b"></i><i class="b"></i><i class="b"></i><i class="g"></i></div><small>All Blue + SFP</small></div>
+        <div class="led"><div class="row"><i class="r"></i><i class="r"></i><i class="r"></i><i class="g"></i></div><small>All Red + SFP</small></div>
+      </div>
+            <div class="facts">
+        <div><b>&lt;0.08%</b><small>false-positive ratio</small></div>
+        <div><b>&lt;4 ms</b><small>per image (OpenVINO)</small></div>
+        <div><b>&gt;0.95</b><small>confidence, all cases</small></div>
+      </div>
+      <div class="chips"><span class="chip">SqueezeNet</span><span class="chip">Intel OpenVINO</span><span class="chip">Model Optimizer</span><span class="chip">GPU training</span></div>
+    </div>
+    <div class="reveal">
+      <h3 style="margin-bottom:12px">Four experiments to get it right</h3>
+      <div class="exps">
+        <div class="exp"><h4>Experiment I <span>450×450 · 500k iters</span></h4><p>Couldn't separate pass/fail for the Red + SFP case.</p></div>
+        <div class="exp"><h4>Experiment II <span>450×450 · 1M iters</span></h4><p>Longer training overfit — higher validation loss, weak test results.</p></div>
+        <div class="exp"><h4>Experiment III <span>227×227 · 120k iters · lr 0.006</span></h4><p>Native input size helped, but false positives on fail cases stayed high.</p></div>
+        <div class="exp win"><h4>Experiment IV ✓ <span>227×227 · 300k iters</span></h4><p>Best checkpoint at 64k iterations: <b>FPR 0.08%</b>. Converted to OpenVINO IR (.xml/.bin) and verified on 143 mixed pass/fail images.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal aoi-sys">
+    <h3 style="margin:34px 0 12px">System design — from LED to verdict in under 4 ms</h3>
+    <div class="scan" style="aspect-ratio:auto">
+<svg viewBox="0 0 760 450" role="img" aria-label="Animated LED AOI system design: device LEDs captured by camera, preprocessed and trained on a GPU server with SqueezeNet, converted by OpenVINO Model Optimizer, served by the Inference Engine, returning pass or fail to the production machine and dashboard" style="display:block;width:100%;height:auto">
+<defs>
+ <linearGradient id="gB" x1="0" x2="1"><stop offset="0" stop-color="#4fd1c5"/><stop offset="1" stop-color="#7c9cff"/></linearGradient>
+ <filter id="glw2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c9cff"/></marker>
+</defs>
+<rect width="760" height="450" fill="#0b111d"/>
+<g fill="none" stroke-width="2" marker-end="url(#ar2)">
+ <path id="q1" class="flow" d="M182 100 L288 100"/>
+ <path id="q2" class="flow" d="M452 100 L548 100"/>
+ <path id="q3" class="flow" d="M650 168 L650 238"/>
+ <path id="q4" class="flow" d="M548 300 L452 300"/>
+ <path id="q5" class="flow" d="M288 300 L192 300"/>
+ <path id="q6" class="flow" d="M100 364 L100 400"/>
+</g>
+<g filter="url(#glw2)">
+ <circle r="5" fill="#4fd1c5"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#q1"/></animateMotion></circle>
+ <circle r="5" fill="#4fd1c5"><animateMotion dur="1.2s" begin=".3s" repeatCount="indefinite"><mpath href="#q2"/></animateMotion></circle>
+ <circle r="5" fill="#7c9cff"><animateMotion dur="1.2s" begin=".6s" repeatCount="indefinite"><mpath href="#q3"/></animateMotion></circle>
+ <circle r="5" fill="#7c9cff"><animateMotion dur="1.2s" begin=".9s" repeatCount="indefinite"><mpath href="#q4"/></animateMotion></circle>
+ <circle r="5" fill="#ff8a3d"><animateMotion dur=".6s" begin="1.2s" repeatCount="indefinite"><mpath href="#q5"/></animateMotion></circle>
+ <circle r="5" fill="#3ddc84"><animateMotion dur="1s" begin="1.4s" repeatCount="indefinite"><mpath href="#q6"/></animateMotion></circle>
+</g>
+<g font-family="Inter,sans-serif" text-anchor="middle">
+ <!-- DUT -->
+ <g><rect x="20" y="40" width="162" height="124" rx="12" fill="#121a29" stroke="#4fd1c5"/>
+  <text x="101" y="62" fill="#4fd1c5" font-size="11" font-weight="700" letter-spacing="1">DEVICE UNDER TEST</text>
+  <rect x="38" y="76" width="126" height="34" rx="6" fill="#0b111d" stroke="#22304a"/>
+  <g id="ledrow" filter="url(#glw2)"><circle cx="58" cy="93" r="7" fill="#4f8bff"/><circle cx="86" cy="93" r="7" fill="#4f8bff"/><circle cx="114" cy="93" r="7" fill="#4f8bff"/><circle cx="144" cy="93" r="7" fill="#4f8bff"/></g>
+  <text x="101" y="134" fill="#e8ecf4" font-size="12" font-weight="600" id="ledname">All Blue</text>
+  <text x="101" y="152" fill="#97a3ba" font-size="10">LED status panel</text></g>
+ <!-- camera -->
+ <g><rect x="290" y="46" width="162" height="110" rx="12" fill="#121a29" stroke="#4fd1c5"/>
+  <text x="371" y="84" font-size="24">📷</text>
+  <text x="371" y="110" fill="#e8ecf4" font-size="13" font-weight="700">Image capture</text>
+  <text x="371" y="128" fill="#97a3ba" font-size="10">frame per DUT on the line</text>
+  <rect x="300" y="56" width="142" height="90" rx="8" fill="none" stroke="#4fd1c5" stroke-opacity=".6"><animate attributeName="stroke-opacity" values=".8;0;.8" dur="1.2s" repeatCount="indefinite"/></rect></g>
+ <!-- GPU training -->
+ <g><rect x="550" y="32" width="190" height="136" rx="12" fill="#1a1f3d" stroke="#7c9cff"/>
+  <text x="645" y="54" fill="#7c9cff" font-size="11" font-weight="700" letter-spacing="1">GPU SERVER · TRAINING</text>
+  <rect x="566" y="66" width="158" height="24" rx="6" fill="#26305a"/><text x="645" y="82" fill="#e8ecf4" font-size="10">preprocess → 227×227</text>
+  <rect x="566" y="96" width="158" height="24" rx="6" fill="#26305a"/><text x="645" y="112" fill="#e8ecf4" font-size="10">SqueezeNet · 4 positive cases</text>
+  <rect x="566" y="128" width="158" height="8" rx="4" fill="#0b111d"/>
+  <rect x="566" y="128" width="0" height="8" rx="4" fill="url(#gB)"><animate attributeName="width" values="0;158;158" keyTimes="0;.85;1" dur="3s" repeatCount="indefinite"/></rect>
+  <text x="645" y="156" fill="#97a3ba" font-size="10">best at 64k iterations</text></g>
+ <!-- model optimizer -->
+ <g><rect x="550" y="240" width="190" height="120" rx="12" fill="#121a29" stroke="#7c9cff" stroke-dasharray="4 3"/>
+  <text x="645" y="264" fill="#7c9cff" font-size="11" font-weight="700" letter-spacing="1">OPENVINO OPTIMIZER</text>
+  <rect x="568" y="280" width="72" height="26" rx="6" fill="#26305a"/><text x="604" y="297" fill="#e8ecf4" font-size="11">.xml</text>
+  <rect x="650" y="280" width="72" height="26" rx="6" fill="#26305a"/><text x="686" y="297" fill="#e8ecf4" font-size="11">.bin</text>
+  <text x="645" y="334" fill="#97a3ba" font-size="10">trained model → IR format</text></g>
+ <!-- inference engine -->
+ <g><rect x="290" y="240" width="162" height="120" rx="12" fill="#121a29" stroke="url(#gB)" stroke-width="2"/>
+  <text x="371" y="276" font-size="24">⚡</text>
+  <text x="371" y="302" fill="#e8ecf4" font-size="13" font-weight="700">Inference Engine</text>
+  <text x="371" y="322" fill="#4fd1c5" font-size="12" font-weight="700"><tspan id="ms">3.6</tspan> ms / image</text>
+  <text x="371" y="340" fill="#97a3ba" font-size="10">inference API</text></g>
+ <!-- verdict -->
+ <g><rect id="vbox" x="20" y="240" width="170" height="122" rx="12" fill="#10241a" stroke="#3ddc84"/>
+  <text x="105" y="264" fill="#97a3ba" font-size="11" font-weight="700" letter-spacing="1">VERDICT</text>
+  <text id="vtxt" x="105" y="300" fill="#3ddc84" font-size="26" font-weight="800">PASS</text>
+  <text x="105" y="324" fill="#e8ecf4" font-size="11">confidence <tspan id="conf">0.98</tspan></text>
+  <text x="105" y="344" fill="#97a3ba" font-size="10">FPR &lt; 0.08%</text></g>
+ <text x="160" y="420" fill="#e8ecf4" font-size="12" font-weight="600">→ production machine · defect dashboard</text>
+ <text x="235" y="92" fill="#97a3ba" font-size="9">image</text>
+ <text x="500" y="92" fill="#97a3ba" font-size="9">dataset</text>
+ <text x="690" y="208" fill="#97a3ba" font-size="9">model</text>
+ <text x="500" y="292" fill="#97a3ba" font-size="9">IR</text>
+ <text x="240" y="292" fill="#97a3ba" font-size="9">result</text>
+</g>
+</svg>
+    </div>
+  </div>
+</div></section>
+
+<!-- EARLIER WORK -->
+<section id="earlier"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">Research · coursework · community</div><h2>Earlier projects &amp; learning</h2><p class="sub">Where the IoT, image-processing and edge-AI foundations came from.</p></div>
+  <div class="mini">
+    <div class="grid" style="grid-template-columns:minmax(0,1fr)">
+      <div class="card reveal"><div class="kicker">Image processing · Research</div><h3>Hierarchical remote-sensing image analysis</h3><p>Segmented and classified satellite imagery using Graph Laplacian Energy with an SVM for more robust land-cover classification.</p><div class="chips"><span class="chip">Segmentation</span><span class="chip">SVM</span><span class="chip">Graph Laplacian</span></div></div>
+      <div class="card reveal"><div class="kicker">IoT · Coursework</div><h3>Smart Aquarium</h3><p>IoT sensors wired to an Arduino, monitored and controlled remotely from a Blynk mobile app.</p><div class="flow"><span>Sensors</span><i>→</i><span>Arduino</span><i>→</i><span>Blynk app</span></div></div>
+      <div class="card reveal"><div class="kicker">Edge vision · Coursework</div><h3>Face recognition on Raspberry Pi</h3><p>Real-time face recognition running on a Raspberry Pi with the Pi camera.</p><div class="chips"><span class="chip">Raspberry Pi</span><span class="chip">Pi camera</span></div></div>
+    </div>
+    <div class="reveal">
+      <h3 style="margin-bottom:14px">Conferences, workshops &amp; visits</h3>
+      <div class="events">
+        <div class="ev"><b>Feb 2018</b><span>Intelligent Agriculture IoT Workshop<small>National Ilan University</small></span></div>
+        <div class="ev"><b>Feb 2018</b><span>LPWAN Seminar<small>National Tsing Hua University</small></span></div>
+        <div class="ev"><b>Dec 2017</b><span>Industry visit<small>Coretronic</small></span></div>
+        <div class="ev"><b>Oct 2017</b><span>Startup accelerator visit<small>AppWorks</small></span></div>
+        <div class="ev"><b>Jan 2017</b><span>FinTech &amp; IoT Conference<small>National Tsing Hua University</small></span></div>
+      </div>
     </div>
   </div>
 </div></section>
@@ -630,9 +785,13 @@ const KB=[
  {k:'experience work job career current role company iei position years employer',a:"Experience:<ul><li><b>R&D Software Engineer, IEI Integration Corp.</b> (May 2021 – present) — LLM agents, RAG, GPU inference, AI defect inspection, DevOps.</li><li><b>Automation Testing Engineer, Top Union Electronics</b> (2020–21) — functional testing, +20% efficiency.</li><li><b>Networking Maintenance Engineer, Globe Computers</b> (2014–15, India).</li></ul>"},
  {k:'llm agent agents agentic tool calling chatbot assistant manufacturing ollama qwen llama genai generative',a:"His flagship LLM work is the <b>AI Manufacturing Assistant</b>: a bot → local LLM → REST API → serial console → device pipeline that lets engineers run <b>15+ hardware tests in plain language</b>. He also built a <b>RAG</b> pipeline over internal test docs and an LLM agent that triages CRITICAL/HIGH CVEs from SBOM scans."},
  {k:'rag retrieval embeddings vector search documents knowledge',a:"He added an <b>embeddings-based RAG pipeline</b> so the test assistant answers from internal documentation instead of guessing — accurate, traceable answers for engineers."},
- {k:'computer vision cv aoi inspection defect yolo opencv camera led image detection',a:"In computer vision he built the <b>LED Smart Inspection System</b>: fine-tuned vision models (TensorFlow / Darknet-YOLO) on a custom defect dataset, served in a real-time camera → inference → machine-control pipeline. Result: <b>30% fewer manufacturing defects</b>, plus a MongoDB defect-traceability dashboard."},
+ {k:'computer vision cv aoi inspection defect yolo opencv camera led image detection',a:"In computer vision he built the <b>LED Smart Inspection System</b>: fine-tuned vision models on a custom defect dataset, served in a real-time camera → inference → machine-control pipeline. Result: <b>30% fewer manufacturing defects</b>, plus a MongoDB defect-traceability dashboard. Ask me about <b>SqueezeNet</b> or <b>OpenVINO</b> for the LED AOI case study."},
+ {k:'squeezenet openvino fpr false positive led status experiment intel optimizer ir classifier',a:"<b>LED AOI case study:</b> a SqueezeNet classifier for 4 positive LED states (All Blue, All Red, each with/without SFP). After four experiments, 227×227 input with the best checkpoint at 64k iterations reached <b>FPR 0.08%</b>. Converted to <b>Intel OpenVINO IR</b>, it classifies in <b>under 4 ms per image</b> with >0.95 confidence on 143 test images."},
  {k:'edge gpu inference nvidia cuda on-premise onprem server deploy deployment local model serving fast speed',a:"He deployed Qwen, LLaMA, Mistral and DeepSeek-R1 on an <b>on-premise NVIDIA GPU</b> server via Ollama — about <b>100× faster than CPU</b>, with data kept in-house. His thesis also ran detection on a <b>Raspberry Pi</b> at the edge."},
  {k:'thesis master research nthu project thermal passenger bus transport raspberry lepton faster rcnn ssd',a:"Master's thesis (NTHU): <b>Smart Public Transport with Deep Learning</b> — counting bus passengers with a FLIR Lepton thermal camera + Raspberry Pi (works at night, no faces captured). He built a <b>1,671-image annotated thermal dataset</b> (~10k boxes, 9 classes) and compared Faster R-CNN (<b>91.3%</b>, 6 FPS) vs SSDLite (76.6%, 9 FPS). Code: <a href='https://github.com/antojoeis/thermal-passenger-detection' target='_blank'>GitHub</a>."},
+ {k:'iot arduino blynk aquarium sensor sensors face recognition coursework course remote sensing satellite svm',a:"Earlier projects: a <b>Smart Aquarium</b> (Arduino + IoT sensors controlled from a Blynk app), <b>face recognition on a Raspberry Pi</b>, and research on <b>hierarchical remote-sensing image analysis</b> using Graph Laplacian Energy + SVM."},
+ {k:'conference conferences workshop workshops seminar events visit lpwan agriculture fintech appworks coretronic',a:"Events: Intelligent Agriculture IoT Workshop (Ilan Univ., Feb 2018), LPWAN Seminar (NTHU, Feb 2018), Coretronic visit (Dec 2017), AppWorks visit (Oct 2017) and the FinTech & IoT Conference (NTHU, Jan 2017)."},
+ {k:'mongodb replication monitoring backend database openvpn openwrt router',a:"At IEI he also built a <b>containerised MongoDB replication server</b> with automated data transfer and alerts, a <b>server-monitoring backend + API</b> (JS + MongoDB) for factory servers and DB versions, and set up OpenVPN / OpenWRT router access."},
  {k:'skills stack tech technologies tools languages programming python flask docker',a:"Core skills:<ul><li><b>AI/LLM:</b> agents & tool calling, RAG, embeddings, prompt engineering, Ollama, Qwen/LLaMA</li><li><b>Vision/Edge:</b> TensorFlow, YOLO, OpenCV, OpenVINO, CUDA, AOI</li><li><b>Engineering:</b> Python, Flask, REST APIs, Docker, GitLab CI, MongoDB, PostgreSQL</li></ul>"},
  {k:'devops ci cd pxe provisioning automation security sbom cve syft dependency track',a:"On the automation side he built an <b>automated PXE OS installation</b> system (75% more reliable deployments) and an <b>AI-assisted supply-chain security</b> pipeline: SBOM generation in GitLab CI with Syft + Dependency-Track, and an LLM agent that triages critical CVEs."},
  {k:'education degree study studied bachelor masters university college anna',a:"Education:<ul><li><b>M.S. Electrical Engineering & Communication</b> — National Tsing Hua University, Taiwan (2016–2020)</li><li><b>B.E. Electronics & Communication</b> — Anna University, India (2010–2014)</li></ul>Certifications: Generative AI with LLMs (Google Cloud/Coursera, 2025), Python (Udemy)."},
@@ -647,7 +806,7 @@ const KB=[
  {k:'achievements results impact numbers best proud',a:"Highlights: <b>100×</b> faster LLM inference on GPU, <b>30%</b> fewer defects with AI inspection, <b>75%</b> more reliable deployments, <b>15+</b> hardware tests automated by voice/text, and <b>91.3%</b> accuracy in his thermal-detection thesis."},
  {k:'thank thanks bye great awesome cool nice',a:"You're welcome! 😊 If you'd like to talk with Joe, email <a href='mailto:antojoeis@gmail.com'>antojoeis@gmail.com</a>."}
 ];
-const SUG=['Who is Joe?','LLM projects','Thesis','Computer vision','Skills','Contact'];
+const SUG=['Who is Joe?','LLM projects','Thesis','LED AOI','Skills','Contact'];
 const STOP=new Set('a an the is are was he his him me i you your tell about what which does do did can could how where when why of in on at to for with and or any some good know link please give show more'.split(' '));
 const norm=t=>t.toLowerCase().replace(/[^a-z0-9\s-]/g,' ').split(/\s+/).filter(x=>x&&!STOP.has(x));
 function lev(a,b){if(Math.abs(a.length-b.length)>2)return 9;const d=Array.from({length:a.length+1},(_,i)=>[i]);for(let j=1;j<=b.length;j++)d[0][j]=j;
@@ -667,6 +826,18 @@ let opened=false;
 document.getElementById('chat-fab').onclick=()=>{box.classList.toggle('open');if(!opened){opened=true;botSay(KB[0].a)}if(box.classList.contains('open'))setTimeout(()=>inp.focus(),250)};
 document.getElementById('chat-x').onclick=()=>box.classList.remove('open');
 document.getElementById('chat-f').onsubmit=e=>{e.preventDefault();ask(inp.value);inp.value=''};
+})();
+</script>
+
+<script>
+(function(){
+ const S=[['All Blue',['#4f8bff','#4f8bff','#4f8bff','#4f8bff'],1],['All Red',['#ff4f5e','#ff4f5e','#ff4f5e','#ff4f5e'],1],['All Blue + SFP',['#4f8bff','#4f8bff','#4f8bff','#3ddc84'],1],['Faulty LED',['#4f8bff','#2a3346','#4f8bff','#3ddc84'],0],['All Red + SFP',['#ff4f5e','#ff4f5e','#ff4f5e','#3ddc84'],1]];
+ const row=document.querySelectorAll('#ledrow circle'),nm=document.getElementById('ledname'),vt=document.getElementById('vtxt'),vb=document.getElementById('vbox'),cf=document.getElementById('conf'),ms=document.getElementById('ms');
+ if(!row.length)return;let i=0;
+ function tick(){const st=S[i%S.length];row.forEach((c,k)=>c.setAttribute('fill',st[1][k]));nm.textContent=st[0];
+  setTimeout(()=>{const ok=st[2];vt.textContent=ok?'PASS':'FAIL';vt.setAttribute('fill',ok?'#3ddc84':'#ff8a3d');vb.setAttribute('stroke',ok?'#3ddc84':'#ff8a3d');vb.setAttribute('fill',ok?'#10241a':'#2a1a10');
+   cf.textContent=(0.95+Math.random()*0.04).toFixed(2);ms.textContent=(3+Math.random()*0.9).toFixed(1)},1300);i++}
+ tick();setInterval(tick,2600);
 })();
 </script>
 </body>
