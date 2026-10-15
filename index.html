@@ -318,7 +318,15 @@ footer p{color:var(--muted);margin:10px auto 30px;max-width:560px}
     <div class="reveal">
       <div class="scan">
         <span class="badge">LIVE · thermal inference</span>
-        <div id="sysd" class="sysd" hidden>
+
+        <img id="thesisImg" src="img/thermal_detection.jpg" alt="Faster R-CNN detecting passengers in thermal images">
+      </div>
+      <div class="toggle" role="tablist">
+        <button class="on" data-img="img/thermal_detection.jpg">Faster R-CNN</button>
+        <button data-img="img/ssd_results.jpg">SSDLite</button>
+      </div>
+      <div class="eyebrow" style="margin-top:22px">System design</div>
+        <div id="sysd" class="sysd" style="margin-top:4px;border:1px solid var(--line);border-radius:14px;overflow:hidden">
 <svg viewBox="0 0 640 400" role="img" aria-label="Animated system design: thermal camera to Raspberry Pi, data construction, GPU training, model deployed back to the Pi">
 <defs>
  <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#4fd1c5"/><stop offset="1" stop-color="#7c9cff"/></linearGradient>
@@ -372,13 +380,6 @@ footer p{color:var(--muted);margin:10px auto 30px;max-width:560px}
  <text x="560" y="144" fill="#97a3ba" font-size="9">train</text>
 </g>
 </svg></div>
-        <img id="thesisImg" src="img/thermal_detection.jpg" alt="Faster R-CNN detecting passengers in thermal images">
-      </div>
-      <div class="toggle" role="tablist">
-        <button class="on" data-img="img/thermal_detection.jpg">Faster R-CNN</button>
-        <button data-img="img/ssd_results.jpg">SSDLite</button>
-        <button data-svg="1">System design</button>
-      </div>
     </div>
     <div class="reveal">
       <h3>A custom thermal dataset and two detectors, benchmarked for the edge</h3>
@@ -739,8 +740,6 @@ setInterval(()=>{const pc=document.getElementById('pc');if(pc)pc.textContent=5+M
 document.querySelectorAll('.toggle button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.toggle button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
   const bd=document.querySelector('.scan .badge');
-  if(b.dataset.svg){timg.style.display='none';sysd.hidden=false;bd.style.display='none';return}
-  sysd.hidden=true;timg.style.display='block';bd.style.display='';
   timg.style.opacity=0;setTimeout(()=>{timg.onload=timg.onerror=()=>timg.style.opacity=1;timg.src=b.dataset.img;if(timg.complete)timg.style.opacity=1;setTimeout(()=>timg.style.opacity=1,800)},250)});
 
 /* filters */
